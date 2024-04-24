@@ -1,20 +1,22 @@
-import getpass, shutil, os
+import getpass, os
 
 mkdir = ["logs/", "comments/", "videos/", "html/videos/", "html/videos/hls"]
 mkfile = ["videos/videos.csv", "logs/php.log", "logs/python.log"]
 
 systemdBase = """[Unit]
-Description=Minecraft Server PHP Service
+Description=TestVideo
 After=network.target
 
-user={0}
-
 [Service]
+
+User={0}
+Group={0}
+
 WorkingDirectory={1}
 
 Restart=always
 
-ExecStart=./start.sh
+ExecStart=bash start.sh
 
 [Install]
 WantedBy=multi-user.target""".format(getpass.getuser(), os.path.abspath("./"))
@@ -22,6 +24,7 @@ WantedBy=multi-user.target""".format(getpass.getuser(), os.path.abspath("./"))
 commands = """sudo apt update && sudo apt upgrade -y
 sudo apt install php screen ffmpeg -y
 pip install ffmpeg-python
+sudo cp ./TestVideo.service /etc/systemd/system/TestVideo.service
 systemctl daemon-reload"""
 
 def main():

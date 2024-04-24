@@ -25,7 +25,7 @@
                 </form>
                 <h2 class="pt-2">動画リスト</h2>
             </div>
-            <ul>
+            <ul style="display: flex;">
                 <?php include "../cgi-bin/videoList.php" ?>
             </ul>
         </div>

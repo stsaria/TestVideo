@@ -3,7 +3,7 @@ from os.path import abspath, dirname
 
 chdir(abspath(dirname(__file__)))
 
-import ffmpeg, subprocess, sys, os
+import ffmpeg, sys, os
 
 VIDEOID = sys.argv[1]
 
