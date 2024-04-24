@@ -1,3 +1,4 @@
-/data
-/log
-/minecraft
+./videos
+./html/videos/
+/comments/
+/logs/
