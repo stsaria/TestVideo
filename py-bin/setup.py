@@ -23,7 +23,7 @@ WantedBy=multi-user.target""".format(getpass.getuser(), os.path.abspath("./"))
 
 commands = """sudo apt update && sudo apt upgrade -y
 sudo apt install php screen ffmpeg -y
-pip install ffmpeg-python --break-system-packeages
+pip install ffmpeg-python --break-system-packages
 sudo cp ./TestVideo.service /etc/systemd/system/TestVideo.service
 sudo systemctl daemon-reload"""
 
