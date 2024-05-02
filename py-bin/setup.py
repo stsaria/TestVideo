@@ -25,7 +25,7 @@ commands = """sudo apt update && sudo apt upgrade -y
 sudo apt install php screen ffmpeg -y
 pip install ffmpeg-python --break-system-packeages
 sudo cp ./TestVideo.service /etc/systemd/system/TestVideo.service
-systemctl daemon-reload"""
+sudo systemctl daemon-reload"""
 
 def main():
     for i in mkdir:
