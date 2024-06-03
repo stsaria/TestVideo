@@ -12,15 +12,14 @@
                 }
                 if (!empty($rows)): ?>
                     <ol>
+                <?php endif; ?>
+
                 <?php foreach ($rows as $row): ?>
                     <?php $num_response++ ?>
                     <strong><li id="<?=$num_response?>"><?=$row[0]?></strong> ID:<?=$row[3]?> <?=$row[2]?></br>
                     <?=$row[1]?></li>
                 <?php endforeach; ?>
                     </ol>
-                <?php else: ?>
-                    
-                <?php endif; ?>
                 <?php
                 flock($fp, LOCK_UN);
             }else{
@@ -57,16 +56,13 @@
                 while ($row = fgetcsv($fp)){
                     $rows[] = $row;
                 }
-                if (!empty($rows)): ?>
-                    <ul>
-                <?php foreach ($rows as $row): ?>
-                    <?php $num_response++ ?>
-                <?php endforeach; ?>
-                    
-                <?php else: ?>
-                    
-                <?php endif; ?>
-                <?php
+                if (!empty($rows)){
+                    echo "<ul>";
+                }
+
+                foreach ($rows as $row){
+                    $num_response++;
+                }
                 flock($fp, LOCK_UN);
             }else{
                 echo '<script>alert("File lock failed.");</script>';
